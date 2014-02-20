@@ -11,14 +11,14 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-echo "Installing Java (OpenJDK)..."
+echo -e "Installing Java (OpenJDK)...\n"
 yum install -y -q java-1.7.0-openjdk > /dev/null
 
-echo "Fetching Fast Data Transfer (FDT)..."
+echo -e "Fetching Fast Data Transfer (FDT)...\n"
 curl -sl -o $FDT http://monalisa.cern.ch/FDT/lib/fdt.jar
 
-echo "Starting FDT..."
+echo -e "Starting FDT...\n"
 java -jar $FDT > /var/log/fdt.log 2>&1 &
 
-echo -e "To start FDT again, please run:\n$ java -jar $FDT > /var/log/fdt.log 2>&1\nTo kill FDT, run:\n$ pkill -f fdt.jar"
+echo -e "\n\nTo start FDT again, please run:\n$ java -jar $FDT > /var/log/fdt.log 2>&1\n\nTo kill FDT, run:\n$ pkill -f fdt.jar"
 echo "Make sure to adjust your firewall accordingly."
