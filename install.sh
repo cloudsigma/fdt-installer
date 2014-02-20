@@ -17,7 +17,7 @@ yum install -y -q java-1.7.0-openjdk > /dev/null
 echo "Fetching Fast Data Transfer (FDT)..."
 curl -sl -o $FDT http://monalisa.cern.ch/FDT/lib/fdt.jar
 
-echo "Starting FDT.."
+echo "Starting FDT..."
 java -jar $FDT > /var/log/fdt.log 2>&1 &
 
 echo -e "To start FDT again, please run:\n$ java -jar $FDT > /var/log/fdt.log 2>&1\nTo kill FDT, run:\n$ pkill -f fdt.jar"
